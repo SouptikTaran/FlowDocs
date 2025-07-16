@@ -1,0 +1,37 @@
+name: Build Next.js App
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Install, Lint, Test & Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ⬇️ Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # or whatever version your project uses
+          cache: 'npm'
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🧹 Run Linter (Optional)
+        run: npm run lint
+        continue-on-error: true # if you want to avoid failing the build
+
+
+      - name: 🏗️ Build Next.js app
+        run: npm run build
+
+
