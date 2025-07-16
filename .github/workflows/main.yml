@@ -24,7 +24,7 @@ jobs:
           cache: 'npm'
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm install --force
 
       - name: 🧹 Run Linter (Optional)
         run: npm run lint

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useRouter } from "next/navigation"; // ✅ import router
 
 import { deleteDocument } from "@/lib/actions/room.actions";
 
@@ -22,14 +23,17 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const router = useRouter(); // ✅ initialize router
+
   const deleteDocumentHandler = async () => {
     setLoading(true);
 
     try {
       await deleteDocument(roomId);
       setOpen(false);
+      router.push("/dashboard"); // ✅ redirect after delete
     } catch (error) {
-      console.log("Error notif:", error);
+      console.error("Error deleting document:", error);
     }
 
     setLoading(false);
@@ -73,6 +77,7 @@ export const DeleteModal = ({ roomId }: DeleteModalProps) => {
             variant="destructive"
             onClick={deleteDocumentHandler}
             className="gradient-red w-full"
+            disabled={loading}
           >
             {loading ? "Deleting..." : "Delete"}
           </Button>
