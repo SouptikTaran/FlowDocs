@@ -47,8 +47,7 @@
 
 ## 🏗️ Architecture
 
-[View on Eraser![](https://app.eraser.io/workspace/xFYw5ZQx6UWIgaZPj9Vl/preview?elements=87D-cCNNAAhbqrj9WPMrUQ&type=embed)](https://app.eraser.io/workspace/xFYw5ZQx6UWIgaZPj9Vl?elements=87D-cCNNAAhbqrj9WPMrUQ)
-
+![alt text](image.png)
 
 ---
 
